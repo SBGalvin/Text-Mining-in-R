@@ -1,0 +1,324 @@
+doc,author2,score,upvotes,downvotes,golds,comment,comment_id
+OP1,001,27,27,0,0,"Eclipse with StatET is my preferred choice of editor.
+
+I don't agree with OP. R is not broken. The help system works well the language works well. There is probably a limit on how many libraries one should use at the same time. But that would be true for any software.
+
+Yes, it is slow, but its interpreted, goes with the territory. Fast would need compiled at least. Getting to use multicore or GPU will be a major overhaul. As far as I understand there is no standard API in GPU usage anyway, so don't expect it soon. R is a follower in this, and needs to work on all kinds of devices. I certainly have no GPU to use nor anything remotely multicore.
+
+Finally, hope OP never has to use SAS. Maybe OP should check Julia",1
+OP1,002,12,12,0,0,"Oh god if OP has to use SAS that will be something. Ugly programming and slow. I was thinking if OP has that large of data, then R may not be the right tool for performance.
+
+Edit: A word",1_1
+OP1,001,4,4,0,0,"every now and again I wish I could curse the 'R bad Python good' crowd with a few months of having to use SAS. ;)
+
+And just once I would like one of them to rant on SAS.",1_1_1
+OP1,003,1,1,0,0,"Being forced to use SAS is not the end of the world.
+
+And it *does* scale better -- at least in terms of number of rows, up to the limit of what you can comfortably hold in memory -- better than naively written R code does. 
+
+That's not so much a criticism of R itself, as a comparison of professionally optimized SAS packages against casually written R packages. OP's point is basically that this could be fixed with a bit of effort by the right people.",1_1_2
+OP1,004,2,2,0,0,+1 Julia.,1_2
+OP1,005,24,24,0,0,"Like every open-source language post, it comes down to a simple fact: you either work to improve it, you accept it, or use something else.
+
+&amp;#x200B;
+
+The R culture is one that is not ""software developer first"", and there are positives and negatives to this. Only you can decide whether the positives or negatives outweigh the others, but saying ""all of this sucks, who's with me?"" won't move anything forward.",2
+OP1,004,7,7,0,0,"It's a bit narrow imo, sometimes academicians will spend a whole lot of time writing R code and they'll never come into contact with software developer but for that kind of rant. I think it's healthy for the ecosystem when many people complaint about the same thing. If we can share goals instead of having clusters of developement it can improve the language in the long run.",2_1
+OP1,005,3,3,0,0,"At the same time, R isn't that slow compared to having to write everything yourself.
+
+&amp;#x200B;
+
+Open source is about freedom, and R as language/community gives everyone that freedom. Choice of using RStudio or not, choice of writing your own packages, choice of submitting pull requests to improve documentation, choice of re-writing package code using Rcpp. The problem is, most of that is *actual work*, and there's no substitute for someone deciding to do it.",2_1_1
+OP1,004,1,1,0,0,That's right but I still understand the frustration,2_1_1_1
+OP1,006,6,6,0,0,"I understand the frustration, disagree about the ranting. I'm an academic who writes R code and knows a lot of academics who write R code, and very few of us have any formal training in software development. Academia has a huge problem of people not sharing code or data, and complaints about coding style and performance is a detriment to progress in that area.
+
+I'm fully onboard with u/randyzwitch's initial comment. There's a lot of room (and need) for folks to develop good research software, and to train researchers in better practices -- OP can very well turn their frustration into positive value for the community.",2_1_1_1_1
+OP1,004,2,2,0,0,Fair enough,2_1_1_1_1_1
+OP1,007,42,42,0,0,"I think that you have a pretty warped view of how the academic community views R. In most regards I think that viewing R as a programming language in the same way you view Python or C as a programming language kind of misses the point. In particular your point on packages being written by students and inexperienced programmers - that is kind of the point. A huge selling point to the R ecosystem is the ease with which research can be translated into code for other researchers. Viewing R packages as programmed software to attain a goal, instead of as an extension of the related research, is going to make you sad for sure. 
+
+Some of the other points are rather subjective, or at least not typical in my experience. I do not have stability issues with R hardly at all, I have no issues with R Studio [though depending on what I'm doing I may go for a more traditional environment], function names are entirely subjective and largely dictated by what field you come from, and documentation (like all documentation, let's be honest) is incredibly variable - but it's certainly not all shitty. 
+
+My recommendation would be: don't use R if you're hitting performance bottlenecks and you can already work in a more performant language. It is totally possible to write incredibly efficient R code, but you'll probably have a better time working in C [or similar]. If you view R as an extension to Statistics research, and frame it as a tool for computation, you'll likely be far less frustrated.",3
+OP1,008,7,7,0,0,"&gt; A huge selling point to the R ecosystem is the ease with which research can be translated into code for other researchers.
+
+And thank goodness for that. I ran into this just yesterday: was reading a paper about an ecological analysis method, felt lazy about implementing the method myself, but found it in a package that was already written by someone else. It has an ugly function name and the documentation is okay, but it a) saves me hours/days of implementation, and b) has already been used in other papers.",3_1
+OP1,009,23,23,0,0,Reading this I can tell OP hasnt discovered data.table yet,4
+OP1,010,9,9,0,0,"Just a note about name collisions between packages, that can be handled by manually specifying which package you want to access.
+
+Example - packageA and packageB both provide a `read` function:
+
+Then use either `packageA::read(""mydata.csv"")` or `packageB::read(""mydata.csv"")`
+
+This also works without having to use `library(...)` for either package too, which can be nice if you're only using one function from a package.",5
+OP1,008,1,1,0,0,"Yes, using objects to get around name collisions is like using a loop to iterate through vector elements; its not idiomatic R, which is why it was so clunky.",5_1
+OP1,011,7,7,0,0,"I mean, some of the issues you mention are expected when most of the work is being done by academics and statisticians and not software developers. I'm a horrible programmer so I haven't even been subjected to many of the issues you mention. R is great for quick and dirty experimentation and statistical analysis with datasets at a couple of gigabytes, but there's a reason why Python is used in production.",6
+OP1,004,7,7,0,0,"R is more like Matlab or Mathematica than it is like Python or C.
+
+It's a statistics environment, not a general purpose programming language. Its the kind of thing mathematicians and statisticians would be using so they can focus more on their domain than the software.
+
+I have an applied math background. We were using Matlab even for collaborative research with the CS department. They'd usually take the algorithms and convert them to Python or something else. They still continued to request our help so I guess we provided some value.
+
+I've found R works best for plotting, exploration and small to medium scale research. Anything big and you're going to want to switch to something else. I'm mostly using Python and some C these days; Python for both our software as well as anything I'd use R for in the past.
+
+I get where you're coming from, but maybe that helps you set your expectations.",7
+OP1,004,5,5,0,0,[deleted],8
+OP1,012,2,2,0,0,Im sure a pull request would be welcomed,8_1
+OP1,013,9,9,0,0,"On some level I agree with your criticisms, but for the most part you sound like a newbie who doesn't really know much about `R`. Especially vis-a-vis the slow performance issues; if you are doing intensive computations directly in `R` and not (explicitly or implicitly) using `C` then you are just doing something wrong. I also have no idea what you are doing that you run into having to delete directories in Rstudio. 
+
+I think experience with other languages makes software developers miss all the positives with `R` because it doesn't behave how any sane language should. But because of that, it is really good for interactive data analysis and jives well with a data science workflow. It's a poorly-designed language, but the poor design choices from a computer science perspective end up being beneficial for statisticians. 
+
+Again, for performance, hooking into C++ is really trivial with Rstudio and Rcpp (especially if you are a software developer). For 90% of people, they can use other people's performant code to get the job done, for the remaining 10% you just need to not be ignorant enough to try coding intensive algorithms directly in R. If you are advanced enough that you want to use a GPU, there are facilities for doing that either directly in `R` or by using `R` as an interface  to something like tensorflow.",9
+OP1,014,2,2,0,0,"OP, post some of your sluggish code over on one of the R subreddits and ask for suggestions. People will be happy to help. Sounds like you have a strong programming background but you could use some R-specific pointers. 
+
+
+Check out data.table and tidyverse, dont use base R functions for reading in data, read about the correct way to use loops in R (and about the lapply family of functions), read about vectorizing, and never use attach() :).",10
+OP1,015,5,5,0,0,...get better at using R?,11
+OP1,016,4,4,0,0,"I'd divide your criticisms into three groups:
+
+1. Necessary tradeoffs.  Concern about packages being poorly written, poor documentation, and terrible naming conventions are precisely because R is at the bleeding edge of stats research.  When someone comes up with a new method, it is common for them to implement it in R.  That's a selling point of R, but it comes at a cost.  The researchers may be shit programmers, they may think their paper counts as documentation, they may ignore conventions, etc.  That's the tradeoff.
+
+2. Crashes, bugs, or small limitations. Nearly every software package has limitations and has an issue with bugs.  These are frustrating, but do eventually get ironed out.
+
+3. Spot on criticisms.  There's really no excuse for R's performance issues, lack of easy parallelization, or data handling problems.  This is not a criticism of the R developers, who are still almost all volunteers.  It is a criticism of the poor investment in science infrastructure.  A superb investment to advance scientific research would be a small (by big science standards) grant to completely refresh the code base.  As you suggest analogizing with python 2 to 3, a complete rewrite would be very helpful.",12
+OP1,017,1,1,0,0,"I feel your frustration. There's really no excuse for stuff like stopifnot() simply continuing when the argument is NULL, and fromJSON(toJSON()) not being identical.",13
+OP1,003,1,1,0,0,"I am largely in agreement with OP's points.
+
+I would temper them by observing two things:
+
+1) We have a choice what languages we choose to use. Those of us who don't like R have several other choices, and what we pick depends on the task at hand, on our background, and on how we think. 
+
+2) ""The ecosystem"" may, in time, fix itself.
+
+The LaTeX ""ecosystem"" was similarly broken - some might say it still is - by too many different people writing packages that conflict with each other. But in time it largely sorted itself out. In LaTeX there's a standard way you declare your dependencies, and a standard way you avoid collisions between within-package and user-defined names (makeatletter) though it doesn't prevent collisions between packages. More to the point, LaTeX also evolved to the point that there were standard families of packages bundled together for distribution. R doesn't quite seem to have done that yet but I bet it could easily happen if someone wanted to curate a set of packages the way TUG curates the contents of each year's TeXLive release.",14
+OP1,018,1,1,0,0,"&gt; Use of library(...) causes name collisions. But this can be solved with objects;
+
+There's namespace in R I have no idea what you're talking about. Global namespace polluting is a thing in any programming languages.
+
+&gt; There are several ways to create objects. About all these S3, S4, R6, etc.. This seems overkill. Let's switch to one way: R6 or a better way. (I suggest making a new version of R with a new way of working. A la Python 2.7 vs Python 3.-.
+
+You're basically asking for another language. The reason why object exist is that R as a language eventually adopted and evolved. You can't add a new paradigm expecting it to completely works with the existing language structures, it's not easy. 
+
+Likewise that's why Javascript decided to pretend to have classes now and it have namespace now. Or PHP adopted classes in version 4 and namespace in 5.4. Languages evolve and adopt, when they do this they'll have a subpar looking solutions. Python object model was built into the language from the get go. It's beautiful because of it. You can't expect R to adopt these new features without warts. I have yet to see a language do this successfully.
+
+While there are many other aspects, you still need to be backward compatible.
+
+&gt; R is SLOW. I hope you all have seen the performance posts written on blogs and over here, It just is slow. And since data grows significantly (certainly mine does), this becomes more and more of an issue.
+
+One of the creators of R is critical about R being slow. There are many things to speed it up including parallel/concurrency mclapply. But the central theme of his argument was that R have out grown what it initially created to do. So there are many improvements but the foundations is a bit shaky at best. 
+
+There is no magically solution to this. It's hard to make a language better with all the legacies. 
+
+If you want faster language you can try Python or Julia but the cons will be that you won't have those bleeding edge and good statistical packages that comes from R.
+
+&gt; R Studio is buggy.
+
+It's an open source software so it comes with all the pros and cons, if you don't like it you don't have to use it. You can use vim and tmux or many other choices. UCR have documentation on vim and tmux for R.
+
+&gt; Packages are written by students and inexperienced programmers.
+
+Most of the packages are publish by people that aren't programmers. You're expecting someone to donate their free time while being an expert at statistic and at programming.
+
+While this can be a con, many of the crazy statistical packages out there are created by statistician who are expert in those domains. So it's a pro and con.
+
+While I think some of your arguments are valid and most of it is understandable, I think you're overly critical of it and overlooking the benefits.
+
+----
+
+Here's the debates and sources for improving R vs creating an entirely new language:
+
+https://xianblog.wordpress.com/2010/09/08/julien-on-r-shortcomings/
+
+Here's an interesting paper on analyzing the language R in general (tldr: it was created by statistician not programmer therefore there are very weird language choices):
+
+http://r.cs.purdue.edu/pub/ecoop12.pdf",15
+OP1,004,1,1,0,0,"kinda agree about Rstudio, lots of people seem to like it but I find it's a jumble",16
+OP2,001,24,24,0,0,"Well, if you're coming from a programming background, python is a no brainer. 
+
+However from my perspective, I recently got into this and started learning both R and Python from scratch. I've had some very minor programming experience with coding arduinos and VBA a long time ago fro Excel.  But both R and Python were basically new for me. 
+
+To me they're both kind of the same, each has some cool stuff and some bad stuff. 
+
+Now take into account this is coming from 100% Nooblet so maybe some of the stuff won't make any sense to a more seasoned programmer that has seen more of each language. Just giving my actually perspective right now. 
+
+Python is easier to read, specially with the whole OOP and methods so you can read left to right as to whats happening. R on the other hand you have to use pipe operators or nest function inside of function inside of function which makes it a bit harder to read for me.  Again seems like a non issue with pipe operator in R, but I prefer python on this. 
+
+On the other hand dealing with data seems easier to me in R than python. Specially going into Machine learning. R's factors and formula inside machine learning model is a lot faster (to me) than python's solution of dropping everything you don't want, and creating dummy variables for every categorical data + having to separate the DataFrame into 2 for features/labels. 
+
+Much easier to me to set everything as factors and then go (label ~ .)  or remove what I don't want from the formula without touching the data frame. 
+Specially if I want to use different methods or models, etc. 
+
+Visualisation, well, python's seaborn and matplotlib are pretty cool nowadays, but I still prefer ggplot2's ""system"". Seems like I can logically add the stuff i need to the graph how I want it instead of having to read the documentation for that specific plot in seaborn. 
+
+Like if midway through a project I decided to do a 2 dimensional grid based on 2 variables, i can just ""add"" it to the plot. As far as my experience goes in matplotlib you need to basically redo the plot and create the grid first. 
+
+Also package management in RStudio has given me a lot less headaches that dealing with conda install and pip install .
+
+So for me, I enjoy both solutions. I sometimes like to do my data cleaning in R, but EDA on python and if I need a specific viz, go back to R. It all depends on what I need",1
+OP2,002,3,3,0,0,"Best answer in the thread, right here.",1_1
+OP2,001,2,2,0,0,"Thank you! Again, full disclosure I am 100% a Noob at this so it's totally valid that someone comes and says "" Well you don't use dummies anymore you use X package now"" or somthing like that. But this is my perspective as someone with very little coding experience and just a few courses on the matter",1_1_1
+OP2,003,13,13,0,0,"I used a bit of R a while back and strongly disliked the whole experience. As someone coming from a fully fledged programming language it leaves a lot to be desired. My initial experience with it was enough to put me off from delving deeper when Python is more multi purpose. 
+
+
+On the other hand I have heard that people from a statistics background often prefer it, as it's more like what they are used to. Also it has stronger support for certain statistical models. 
+
+
+Unless you are primary interested in data science, I see little reason to use R. It's really strength is in rigorous data analysis which most people don't need and would rather have the multi purpose benefits of Python. ",2
+OP2,004,2,2,0,0,"See thats the thing& Even in data science, I surveyed a large number of people in data science and they didnt even like R. A lot of people had a strong distaste of it as if it was extremely inferior and the underlying programming language was badly made& But I dont know anything about the underlying programming that the language is made off of",2_1
+OP2,004,2,2,0,0,"A lot of people in science won't bother trying to learn how to use a CLI, though. If they want to analyze data they rather use things like SPSS.",2_1_1
+OP2,004,3,3,0,0,Mostly because SPSS is thrust upon them. Why learn something else on top of everything else you have on your plate? ,2_1_1_1
+OP2,004,4,4,0,0,[deleted],3
+OP2,005,4,4,0,0,"You just listed two reasons why I prefer R to Python. 
+
+But Im from a stats background so yeah. ",3_1
+OP2,004,2,2,0,0,[deleted],3_1_1
+OP2,005,1,1,0,0,"It looks like (2) was taking about two different things. 
+
+(A) If I select a row of a data frame* edit: matrix, I want it to be a vector. (Though in truth any data type in R is a vector. A scalar in R is a vector of length 1.)
+
+(B) Additionally, I get type errors all the time but for me if I have a numeral I never ever ever want it to be a string, so thats a helpful feature. 
+
+I get numerals as strings all the time in tableau, python, qgis, Stata, frigging everything. R rarely does this. =",3_1_1_1
+OP2,004,2,2,0,0,"a = ""545.2222""
+
+
+ float(a)
+
+
+545.22220000000004
+
+
+ int(float(a))
+
+
+545
+
+This is how easy it is in python to convert between data types. You cant seriously say thats why you prefer R to python. Because youd rather not type 3-4 letters? Sounds like user error. ",3_1_1_1_1
+OP2,005,1,1,0,0,"I was coding on a python based program, so you would enter python code and it would apply it to a data set within the program. I would do float(a) and it would convert to floats, then I would save the database and it would convert to newly - floated vector to Int().  This ended up being a CNR error a lot because if I changed computers it would work correctly two or three times then start doing this again. The program was at faulty, not python. Nevertheless, I retained my comfort with the language I learned first; go figure. ",3_1_1_1_1_1
+OP2,004,1,1,0,0,Its funny because I dont know what matrices are used for at all but I come from data science background. What do they get used for?,3_2
+OP2,004,27,27,0,0,[deleted],4
+OP2,006,4,4,0,0,"I am not sure what you mean by ""functional language"". Unless you mean that it has a lot of build in functions, as far as I know it's an imperative programming language.",4_1
+OP2,006,3,3,0,0,"Alright, did a bit of reading and I was wrong. I must say though, that is really does not 'feel' like a functional programming language.",4_1_1
+OP2,004,4,4,0,0,[deleted],4_1_1_1
+OP2,006,2,2,0,0,"Ah yes, read a bit of the link you posted. Learned something new about it. Thanks :)",4_1_1_1_1
+OP2,001,0,0,0,0,"Well according to this R is an Impure Functional Language, just like Python and C++ for example.
+
+https://en.wikipedia.org/wiki/List_of_programming_languages_by_type
+
+As you seem to imply, it is because of ""functions"" and not because they are ""functional"" or so
+
+Also, I don't see R in the Imperative l;anguage section",4_1_2
+OP2,007,-1,-1,0,0,"I don't think R can be thought of as a functional language. It's possible to do functional programming in R but it's not the norm. It'd be like saying it were an OO language just because it technically has a (few) OO system.
+
+Certainly almost all scripts that earn R its hate from beginners were NOT due to any functional programming code. It's far more similar to Javascript than it is to Haskell.",4_2
+OP2,004,-16,-16,0,0,"Wow, lets calm down there a little bit. You are comparing R to SQL? Thats not even close to being a congruent example. People are beginning to replicate Rs features in python. Seaborn has definitely closed the gap in creating awe inspiring plots and graphs. Whatever R is capable of that python isnt, theyre trying to bridge the gap.   But python isnt even close to being able to replace or reduce the usefulness of SQL. Dataframes you must remember are not the same as databases even though people erroneously think that they are because of their similar appearance. ",4_3
+OP2,008,2,2,0,0,"I came from a software/web dev background and got into R for a data science class.  I don't remember the exact specifics of why I hated it, but you're right, I hated it.  I found the entire thing very cumbersome.  
+
+Like, taking standard programming approaches toward R failed in ways that I wouldn't expect.  I could barely figure out how to get a fairly simple loop running.  And before you say it was me, I was working with a bunch of compsci majors and it was common for anyone of us to get frustrated and vent about how doing simple shit in R is so unintuitive.  
+
+I think there were some terminology issues too, where e.g. common terms like 'variable' meant something different in R than they did in every other language I've worked in (sorry I can't be specific on this but it's been a few years since I last used it).  
+
+Someone else mentioned that R is a functional language, so maybe the problem for me is that I simply don't know functional programming.  But considering that most programmers are going to come from a more C style procedural/object oriented background, it seems strange to me that there isn't an approach that's closer to what's in use for most other programming challenges.
+",5
+OP2,004,2,2,0,0,"I'd say R is the best for scientific data analysis, it's robusto and has all kinds of models implemented. It is a programming language, but come on, outside of data analysis, what other thing can do better than python?",6
+OP2,009,2,2,0,0,"To me, R doesn't feel like a programming language. It feels like a language written by statisticians, for statisticians. Which is great, except not to someone who's very accustomed to a CS perspective on things. It has it's purpose though, I wouldn't pick anything else if I need to do some plots or data series manipulation. Its vectorization support is phenomenal and super expressive.",7
+OP2,010,1,1,0,0,"When you are playing around, making something as a one-off, any language will do. You're spending 90% of your time *writing* code and 10% of your time *reading* it.
+
+However, as soon as you have something you need to maintain, it needs to be readable. Everyone working on the code-base will spend 90% of their time *reading* code, and 10% *writing* it.  So, many people prefer languages with very strict typing rules, good verbosity to naming conventions, and generally good coding conventions. It's quite possible to make just about any coding language un-readable, however some languages make this a lot easier.  And I'm not really taking about `x &lt;- stat(experimentDataFrame)`not being easy to understand, I mean a language like R makes it much harder (without an IDE) to quickly groc what the actual content of `experimentDataFrame` is, while a language like Java or C will have defined structures you can hunt down like `struct ExperimentData { .... }` which you can open in a new tab and keep as reference while you're trying to think about your particular new feature.
+",8
+OP2,001,4,4,0,0,"Funny because for me the R example is much easier to read than the python example. 
+
+It all boils down to, ""Did you know Python before you got into Data Science?"" if the answer is yes you might not like R, if the answer is no then it might be ""meh""  like in my case. 
+
+I mean I look in R at:
+
+x &lt;- c(1,2,3)
+
+y&lt;- sum(x)
+
+and I immediately see vector [1,2,3] goes into x (even the little arrow to make things clear. 
+
+and then it says the sum of the vector goes into y.
+
+And regarding data viewing, well if you're having a huge data set or something, then having the head and info/str of the dataframe will basically be enough for what you want to use. You're also not going to have the dataframe explicitly on your code either in R or Python most of the time. So you'll end up calling the information of each separately on both languages right?
+
+Maybe I'm missing something completely obvious here",8_1
+OP2,010,1,1,0,0,"I think that nether R nor Python are good languages for readability after-the-fact. I'm quite biased that being untyped makes it significantly harder to reason about the code without having access to a runtime environment to test your assumptions.  When you have a `Map&lt;Integer, String&gt; getPersonRank(List&lt;String&gt; names)` you can see exactly what the inputs and outputs are, vs `getPersonRank &lt;- function(names) { ... snip 50 lines of whatever ... return(cbind(rank, name)) }` You can trust that it's correct, because it's part of the language, while both R and Python rely on you to keep the function's documentation up to date to make sure it's easy to see the inputs and outputs.  Similarly, having a `study.info &lt;- cbind(arm, weight, scores$age, scores$rank, scores$score, scores$name)` somewhere is much harder to reason about than having an explict struct somewhere defining what your study info needs to contain `struct StudyObservation { int arm; float weight; int age; string rank; float score; string name; };`. You're relying on naming convections, and a lot of jumping around to read the full content of functions and just to understand what ended up in your dataframe, instead of being able to rely on compiler rules and explicitly defined structures to explain what is there.
+",8_1_1
+OP2,004,0,0,0,0,"I agree with what youre saying. Very good points I hadnt even considered. Strict naming conventions that R doesnt have! Its also very annoying because there are at least five different ways to write everything in R. Even declaring new data structures, you have &lt;-, -&gt;, and others I cant remember but someone explained earlier. There are literally a handful of ways to do ANYTHING! I literally felt half retarded when I tried reading the pipes from dplyr and magrittr pipes dear god. ",8_2
+OP2,011,1,1,0,0,"slow in production, is one of the complaints i hear.
+also, programming in R is painful.",9
+OP2,007,1,1,0,0,"R is disliked because it is permissive. This is the same reason Javascript is disliked. It's not what's under the hood but what the programmer has to interact with.
+
+R feels more like a scripting language than a programming language. It makes some questionable design choices and has some pretty unique behaviours. For example a for loop
+    
+    for (i in 1:10) {
+        print(i)
+    }
+
+will complete and leave a variable `i` with the value 10 sitting in your environment. It's rare that a iterator variable would be needed outside of the loop and this feels like littering.
+
+It's permissive, so it will try to ""make code work"" in a lot of cases. Most programmers hope for errors when they do something wrong, R will try to make it right.
+
+    x &lt;- list(firstName = ""John"", lastName = ""Smith"")
+    x$firstname
+
+You would hope R would throw you and error and tell you there is no `firstname` property, instead it returns you a `NULL`, if this value is used for assignment elsewhere then you're in a for a whole world of hurt.
+
+Similarly in
+
+    x &lt;- c(1, 2)
+    y &lt;- c(3, 4, 5, 6)
+    cbind(x, y)
+
+You might hope R will warn you that you're column-binding vectors of unequal length, instead it will duplicate the first vector twice and bind it without a peep.
+
+These ""features"" are useful for scripters who can inspect their data at any time and don't want to be frustrated with overly strict errors. They are a nightmare for programmers who need the strictness to ensure the program is operating as expected and cannot easily inspect the whole state of their program at any time.
+
+This is very similar to the critique people have of Javascript, but the result of the permissiveness is that you can write some really nice code. But the burden of discipline is transferred from the language to the users/developers. Hadley Wickham's tidyverse for example is a suite of some of the most polished, consistent and powerful libraries in any language. The `data.frame` focus of the R language and tidyverse packages set R above all other languages for structured data processing and analysis, Python's `pandas` follows this lead but will never be as elegant as a the R implementation.",10
+OP2,012,1,1,0,0,"Python's popularity is directly proportional to the popularity of cloud-based applications. It's highly employable and popular specifically because the last (and next) 5 years are like a gold rush towards cloud-based applications.
+
+R makes mathematics pretty doable, especially statistically-based mathematics. It doesn't build great web applications though. It kind of limits itself to analytic purposes in that regard, and that's largely why it's so popular in academia.
+
+But perhaps more importantly, the quirks of R define its learning curve. They make everything easier if you understand them, and everything more difficult if you don't. 
+
+ - DataFrame[""12"",] and DataFrame[12,] might call different rows.
+ - If you're going to construct a data frame row-by-row, you have to make sure the variables you construct aren't factors.
+ - as.character(&lt;factor_of_words&gt;) gives you numbers, as.vector(&lt;factor_of_words&gt;) gives you words.
+
+There are a few other quirks. I noticed a comment that complained that someList$firstName returns NULL instead of throwing an error if there is no firstName.... NULL is valuable in machine learning, so I guess it depends whether you prefer CS or mathematics.",11
+OP2,012,1,1,0,0,It doesn't help that one feels incredibly stupid going to a search engine and looking for help with a letter of the alphabet.,12
+OP2,013,1,1,0,0,"Why didn't you title your post with something nice about the R programming language, instead of focusing on the contempt?   That's probably part of it. ",13
+OP2,014,1,1,0,0,"c is the name of a function 
+
+it can also be the name of a variable  
+
+    c &lt;- c(1,2,3)
+    print(c)
+    [1] 1 2 3
+    
+and it seems like a language totally designed over a number of years by a committee whose members constantly disagree with each other 
+
+
+
+
+
+
+",14
+OP2,015,1,1,0,0,"&gt; it can also be the name of a variable 
+
+That's because functions are first class citizens. You can always recover the initial function with base::c().",14_1
+OP2,014,2,2,0,0,"yes, but its still stupid 
+
+and that is why its viewed with scorn and contempt ",14_1_1
+OP2,016,1,1,0,0,"I know very little of R and it very well could have plenty of problems, but this is far from one of them. This is extremely commonplace in any functional language (and even a bunch of imperative languages). Values can easily be thought of as functions that always return a single value, and this notion allows for extremely powerful abstractions such as currying, partial function application, and true function composition.
+
+Functional programming has been growing at a very rapid pace and is making its way into the mainstream as the problems its benefits become apparent to more companies every year. I would recommend against dismissing one of the most common functional idioms in recent times so readily.",14_1_1_1
+OP2,015,-1,-1,0,0,"&gt; yes, but its still stupid 
+
+Functions as first class citizens are found in all sorts of languages, both new and old. Disagree with it if you want, but don't just say, ""It's stupid"" because it doesn't fit the paradigm you're most used to.
+
+R has a ton of quirks, that I'll be the first to admit. However, once one is fluent in it, it really becomes a useful tool for doing quantitative analysis. You then just move the hard stuff to other languages if R's performance becomes a concern at that point.",14_1_1_2
+OP2,017,-1,-1,0,0,"When it comes to data analysis, there are two real options: Perl and Perl. 
+
+Fixed that for you.",15
+OP2,004,2,2,0,0,Youve got to be joking ,15_1

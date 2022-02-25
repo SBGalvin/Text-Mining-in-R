@@ -1,0 +1,41 @@
+author2,text,subreddit,score,upvotes,downvotes,up_ratio,total_awards_received,golds,cross_posts,comments,doc
+OP1,"Good day everyone.
+
+LT;DR: Performance issues, R just stops working, load RData and then write table to disk does not work, name collisions, too many ways of OOP, shitty packages and documentation and variable/function names. Etc. What can we do about it?
+
+&amp;#x200B;
+
+I am a software developer with 7 years of experience and recently I started a PhD in bioinformatics. I know my stuff as a software developer (OOP), but switching to R kind of is hard.
+
+It is hard, not because of the language itself, I learned to work smoothly and efficiently in R within a week. However, It seems like the R ecosystem is broken. Let me give you a list:
+
+* R is a (semi-) functional programming language, I'll accept that but;
+* Use of `library(...)` causes name collisions. But this can be solved with objects;
+* There are several ways to create objects. About all these S3, S4, R6, etc.. This seems overkill. Let's switch to one way: R6 or a better way. (I suggest making a new version of R with a new way of working. A la Python 2.7 vs Python 3.-.
+* R is unstable. After a while, the environment just will not do anything. And of course this can be solved by saving to an `.RData` file. However
+* When loading from an `'RData` file, certain objects take a huge amount of time to deserialize. It seems to be a type of deferred deserialisation. I can not save a huge table to disk while I could if the table was just created in the environment using `read.csv(...)`
+* R is SLOW. I hope you all have seen the performance posts written on blogs and over here, It just is slow. And since data grows significantly (certainly mine does), this becomes more and more of an issue.
+* R Studio is buggy. Also it's a shitty substitute for an IDE. I'm just saying; you can also use Sublime with R in a terminal. Works better and has decent syntax highlighting. But Visual Studio Code is also fine, if you so wish. At least I don't need to delete a couple of directories before starting the IDE every once in a while.
+* Packages are written by students and inexperienced programmers. But still published and used. I don't get this. It's like toxic. I mean; people do not have a vision for what is to come. The GPU is never used, nor multi-threading. As a bioinformatician, I really dislike this. Imagine analyzing an Affymetrix microarray or some other type of dataset with 500.000+ rows and 100+ columns. Yea, LIMMA, for example, takes 40 minutes to run. And that is optimized C-code which should utilize the GPU.
+* R function and variable names are worse then in C99 style C. I am a fan of Robert C. Martin, AKA Uncle Bob. I like describing names. But whenever somebody gives/finds a piece of code, the names are shitty, non describing and hard for newbies to decipher.
+* Did I tell you about documentation? It is shitty. Yes, even the vignettes. It never really tells you what the functions and their arguments do. Did you ever read the documentation of GSVA or LIMMA? You probably also read the Articles, right? You had to, and even then it might not be clear what the software package does.
+
+/rant
+
+&amp;#x200B;
+
+Anyways, I think the R ecosystem is broken and I wonder if anybody agrees and if there is something we can do about it? Especially the performance and reload issues are a pain in the ass..
+
+&amp;#x200B;
+
+Anyways, It is 1.11 AM and I hope my analysis will continue and finish this time. Without a loop just continuing doing nothing.",statistics,11,11,0,0.6,0,0,0,27,OP1
+OP2,"When it comes to data analysis, there are two real options: R and Python. It's like Red vs Blue. A few weeks back I accidentally spurred a discussion about the differences between the two. What ended up coming out in the wash were many opinions that R is an inferior language that was poorly built, and is good for little else but statistical analysis. 
+
+
+I'm used to programming in Python, and have experience in R. But what I never understood is how people know what is 'under the hood' of a programming language. So I can't understand the contempt for R as a language, but it is definitely not gaining any momentum in comparison to Python. People just despise it, like it's Meg from Family Guy. 
+
+
+So as a novice programmer involved in Information Systems, I have no favorite. They are both good. But it seems like I get hounded if I even utter the letter 'R' in a conversation among the data sciences community. [Some articles, albeit dated, claim R isn't even a language](https://readwrite.com/2013/11/25/python-displacing-r-as-the-programming-language-for-data-science/). 
+
+
+Does anyone have any short and sweet ideas as to what is going on under the hood to garner the hate for this pseudo-language? ",learnprogramming,77,77,0,0.87,0,0,0,38,OP2
